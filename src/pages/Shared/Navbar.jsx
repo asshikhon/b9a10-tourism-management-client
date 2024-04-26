@@ -1,11 +1,15 @@
 import { Link, NavLink } from "react-router-dom";
 import Swal from 'sweetalert2'
-// import logoHomeHaven from "../../../src/assets/images/HomeHaven.svg"
+
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 AOS.init();
+
+import { Tooltip as ReactTooltip } from 'react-tooltip';
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -19,6 +23,8 @@ const Navbar = () => {
 
     document.querySelector('html').setAttribute('data-theme', theme);
   }, [theme]);
+  
+  
 
   const handleToggle = () => {
  
@@ -156,17 +162,17 @@ TourismTrek
         <div className="dropdown dropdown-end pr-2">
           {user ? (
             <div className="flex items-center">
-              <div className="tooltip" data-tip={user.displayName}>
-                <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost btn-circle avatar animate__animated animate__backInLeft animate__delay-1s"
-                >
-                  <div className="w-10 rounded-full">
-                    <img alt="phot coming soon..." src={user.photoURL} />
-                  </div>
-                </div>
-              </div>
+      <div className="tooltip" data-tip={user.displayName} data-for="avatar-tooltip">
+        <div
+          tabIndex={0}
+          role="button"
+          className="btn btn-ghost btn-circle avatar animate__animated animate__backInLeft animate__delay-1s"
+        >
+          <div className="w-10 rounded-full">
+            <img alt="photo coming soon..." src={user.photoURL} />
+          </div>
+        </div>
+      </div>
               <button
                 onClick={handleLogOut}
                 className="btn bg-green-500 btn-sm md:btn-md lg:text-lg lg:px-6 text-bold text-white "
@@ -196,7 +202,7 @@ TourismTrek
   <svg className="col-start-2 row-start-1 stroke-base-100 fill-base-100" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
 </label>
       </div>
-
+      <ReactTooltip id="avatar-tooltip" place="bottom" effect="solid" />
     </div>
   );
 };

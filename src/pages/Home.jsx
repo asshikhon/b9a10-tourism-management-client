@@ -3,6 +3,8 @@ import logoHome from "../../src/assets/images/home.png"
 import { Helmet } from "react-helmet-async";
 import TouristsSpots from "./Home/TouristsSpots";
 import Countries from "./Home/Countries";
+import Popular from "./Home/Popular";
+import CoreFeatures from "./Home/CoreFeatures";
 
 const Home = () => {
     return (
@@ -14,6 +16,8 @@ const Home = () => {
          <Banner></Banner>
          <TouristsSpots></TouristsSpots>
          <Countries></Countries>
+         <Popular></Popular>
+         <CoreFeatures></CoreFeatures>
         </div>
     );
 };
