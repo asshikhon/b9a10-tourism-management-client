@@ -1,6 +1,8 @@
 import Banner from "./Home/Banner";
 import logoHome from "../../src/assets/images/home.png"
 import { Helmet } from "react-helmet-async";
+import TouristsSpots from "./Home/TouristsSpots";
+import Countries from "./Home/Countries";
 
 const Home = () => {
     return (
@@ -10,6 +12,8 @@ const Home = () => {
 <title>TourismTrek || Home</title>
 </Helmet>
          <Banner></Banner>
+         <TouristsSpots></TouristsSpots>
+         <Countries></Countries>
         </div>
     );
 };
