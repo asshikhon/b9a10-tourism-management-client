@@ -2,10 +2,7 @@ import imgContact from "../../../src/assets/images/contact-us.jpg";
 import logo from "../../../src/assets/images/contact.png";
 import Swal from 'sweetalert2'
 import { useState } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { Helmet } from 'react-helmet-async';
-AOS.init();
 
 
 const ContactUs = () => {
@@ -46,9 +43,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div data-aos="zoom-in-up"
-    data-aos-easing="ease-out-cubic"
-    data-aos-duration="1500"
+    <div 
       style={{
         backgroundImage: `url(${imgContact})`,
         backgroundSize: '100% 100%',
@@ -60,7 +55,7 @@ const ContactUs = () => {
 
 <Helmet>
 <link rel="icon" type="image/svg+xml" href={logo} />
-<title>HomeHaven || Contact</title>
+<title>TourismTrek || Contact</title>
 
 </Helmet>
 
