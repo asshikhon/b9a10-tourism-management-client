@@ -1,9 +1,11 @@
 
 
 const AddTourist = () => {
+
+
     return (
-        <div>
-            <h1 className="text-4xl">add item place</h1>
+        <div className="px-4 md:px-0">
+
         </div>
     );
 };

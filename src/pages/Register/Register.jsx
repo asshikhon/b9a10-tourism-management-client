@@ -1,9 +1,8 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import { Toaster, toast } from 'react-hot-toast';
 import { IoIosEye, IoIosEyeOff } from "react-icons/io";
 import logoRegister from "../../../src/assets/images/register.png";
-
 import { Helmet } from "react-helmet-async";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
