@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const AddTourist = () => {
   const {user} = useContext(AuthContext);
@@ -32,9 +33,30 @@ const newSpot = {
 name,country,location, travel, userName,  photoURL,average,seasonality, total,email, description
 }
 console.log(newSpot);
+
 // send data to the server
+fetch('http://localhost:5000/spot', {
+method: 'POST',
+headers: {
+'content-type': 'application/json'
+},
 
+body: JSON.stringify(newSpot)
 
+})
+.then(res => res.json())
+.then(data => {
+console.log(data);
+if(data.insertedId){
+  Swal.fire({
+    title: 'Success!',
+    text: 'Tourist Spot Added Successfully',
+    icon: 'success',
+   
+  })
+
+}
+})
 }
 
   return (
@@ -158,7 +180,7 @@ console.log(newSpot);
                   </span>
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   name="average"
                   placeholder="Enter Spot Average Cost"
                   className="input input-bordered"
