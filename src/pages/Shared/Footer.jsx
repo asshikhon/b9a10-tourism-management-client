@@ -10,7 +10,7 @@ const Footer = () => {
     return (
 <div data-aos="flip-left" data-aos-duration="1000" className="p-10 bg-base-200 text-base-content mt-12 md:mt-16 lg:mt-24">
 <footer className="px-4 divide-y bg-gray-800 dark:bg-gray-100 text-gray-100 dark:text-gray-800">
-	<div className="max-w-6xl flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
+	<div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
 		<div className="lg:w-1/3" >
 			<a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
 				<div className="flex gap-1 items-center justify-center w-12 h-12 rounded-full" >
