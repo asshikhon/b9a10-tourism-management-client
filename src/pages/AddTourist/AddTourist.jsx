@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
-
+import { Helmet } from "react-helmet-async";
+import addLogo from "../../../src/assets/images/add.png"
 const AddTourist = () => {
   const {user} = useContext(AuthContext);
 
@@ -61,6 +62,14 @@ if(data.insertedId){
 
   return (
     <div className="px-4 md:px-0 ">
+      <Helmet>
+        <link
+          rel="shortcut icon"
+          href={addLogo}
+          type="image/x-icon"
+        />
+        <title>TourismTrek || Add Tourist Spot</title>
+      </Helmet>
       <div className="container mx-auto mt-12">
         <div className="text-center  px-10 py-7 lg:px-28 lg:py-16 bg-[#eaeaea] lg:w-4/4 rounded-md mx-auto">
           <h2 className="text-5xl pb-7 text-black font-extrabold">

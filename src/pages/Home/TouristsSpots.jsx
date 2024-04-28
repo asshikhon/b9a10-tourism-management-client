@@ -1,10 +1,12 @@
+
 import { Link, useLoaderData } from "react-router-dom";
+
 
 
 const TouristsSpots = () => {
 
     const spots = useLoaderData()
-   
+
 
     return (
         <div className="my-10 md:my-16 lg:my-20 ">
