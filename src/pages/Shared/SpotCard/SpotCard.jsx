@@ -24,7 +24,7 @@ const SpotCard = ({spot}) => {
 <p className='text-lg font-semibold'>Travel Time : {travel}</p>
 <p className='text-lg font-semibold'>Seasonality : {seasonality}</p>
 
-    <Link className="w-full mt-4">
+    <Link to={`/details/${spot._id}`} className="w-full mt-4">
       <button className="btn w-full border-0 bg-green-400 text-lg text-white font-semibold">View Details</button>
     </Link>
   </div>

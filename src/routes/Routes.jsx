@@ -8,6 +8,7 @@ import MyList from "../pages/MyList/MyList";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import SpotCardDetails from "../pages/Shared/SpotCardDetails/SpotCardDetails";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
     loader: () => fetch('http://localhost:5000/spot')
     },
     {
+    path: "/details/:id",
+    element: <SpotCardDetails></SpotCardDetails>,
+    loader: () => fetch('http://localhost:5000/spot'),
+    },
+    {
     path: "/addTourist",
     element: <AddTourist></AddTourist>,
 
@@ -35,10 +41,7 @@ const router = createBrowserRouter([
     path: "/myList",
     element: <MyList></MyList>,
     },
-    {
-    path: "/contact",
-    element: <ContactUs></ContactUs>,
-    },
+
 {
 path:"/register",
 element: <Register></Register>,
@@ -47,7 +50,11 @@ element: <Register></Register>,
 path: "/login",
 element: <Login></Login>,
 
-}
+},
+{
+  path: "/contact",
+  element: <ContactUs></ContactUs>,
+  },
     
     ]
 
