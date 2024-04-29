@@ -7,7 +7,7 @@ const TouristsSpots = () => {
 
     const spots = useLoaderData()
 
-    console.log(spots);
+ 
 
     return (
         <div className="my-10 md:my-16 lg:my-20 ">

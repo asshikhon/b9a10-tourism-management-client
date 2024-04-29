@@ -3,11 +3,12 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { Helmet } from "react-helmet-async";
 import myLogo from "../../../src/assets/images/mylist.png"
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { Typewriter } from 'react-simple-typewriter';
 
 const MyList = () => {
   const { user, loading } = useContext(AuthContext) || {};
   const [item, setItem] = useState([]);
-
 
   useEffect(() => {
     fetch(`https://b9a10-tourism-management-server-mu.vercel.app/myList/${user?.email}`)
@@ -26,26 +27,64 @@ const MyList = () => {
 }
 
   const handleDelete = (_id) => {
-    fetch(`https://b9a10-tourism-management-server-mu.vercel.app/spot/${_id}`, {
-      method: "DELETE",
+
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+ 
+        fetch(`https://b9a10-tourism-management-server-mu.vercel.app/spot/${_id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+    
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.deletedCount > 0) {
-          alert("deleted successfully");
-         
-          const remaining = item.filter(user => user._id !== _id)
-          setItem(remaining);
-        }
-      })
-      .catch((error) => {
-        console.error("Error deleting item:", error);
-      });
+       .then(res => res.json())
+       .then(data => {
+    console.log(data)
+    if(data.deletedCount > 0) {
+     Swal.fire({
+          title: "Deleted!",
+          text: "Your Coffee has been deleted.",
+          icon: "success",
+        });
+        const remaining = item.filter(user => user._id !== _id)
+        setItem(remaining);
+    }
+    })
+      }
+    });
+
+
+
+
+
   };
 
   return (
     <div className="container mx-auto px-3 md:px-0 mt-10 md:mt-16 lg:mt-20">
+
+<div className="flex justify-center items-center text-orange-600 mb-12 text-[42px] ">
+  <Typewriter 
+    words={['See Your', 'Added All', 'Tourists Spot Collection']}
+    loop={true}
+    cursor
+    cursorStyle='. . .'
+    typeSpeed={170}
+    deleteSpeed={80}
+    delaySpeed={1200}
+    style={{ fontSize: '24px' }} // Increase the text size
+  />
+</div>
+
 
 <Helmet>
                 <link rel="shortcut icon" href={myLogo} type="image/x-icon" />

@@ -4,7 +4,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 const Weekend = () => {
     return (
-        <div className="mt-10 md:mt-16 lg:mt-20">
+        <div className="my-10 md:my-16 lg:my-20 ">
             <section className="flex justify-between flex-col md:flex-row gap-4">
 
                 <div> 

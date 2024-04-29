@@ -17,6 +17,11 @@ Welcome to TourismTrek, your ultimate destination for tourism management. Explor
 **6**. **User Authentication:** Implement user authentication to allow users to create accounts, log in, and save their favorite properties or preferences. 
 
 
+##  Npm Package Name List =
+
+- React Tooltip
+- react-simple-typewriter
+
  
 
 

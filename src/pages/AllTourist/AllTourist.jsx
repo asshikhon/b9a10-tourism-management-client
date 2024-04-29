@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import allLogo from "../../../src/assets/images/all.png"
 import { Helmet } from "react-helmet-async";
+import { Typewriter } from "react-simple-typewriter";
 
 const AllTourist = () => {
     const spots = useLoaderData();
@@ -32,7 +33,7 @@ const AllTourist = () => {
         <div className="container mx-auto min-h-full text-center mt-10 md:mt-16 lg:mt-20 ">
             <Helmet>
                 <link rel="shortcut icon" href={allLogo} type="image/x-icon" />
-                <title>TourismTrek || All Tourist Spot</title>
+                <title>TourismTrek || All Tourists Spot</title>
             </Helmet>
 
             <details className="dropdown text-center ">
@@ -41,6 +42,19 @@ const AllTourist = () => {
                     <li onClick={handleSortByCost} className="text-base font-semibold rounded-xl text-black bg-white"><a>Average Cost</a></li>
                 </ul>
             </details>
+
+            <div className="flex justify-center text-green-500 items-center my-12 text-[42px] ">
+  <Typewriter 
+    words={['All ', 'Tourists Spot', 'Is Here']}
+    loop={true}
+    cursor
+    cursorStyle='~~~'
+    typeSpeed={170}
+    deleteSpeed={80}
+    delaySpeed={1200}
+    style={{ fontSize: '24px' }} // Increase the text size
+  />
+</div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 mt-10 md:mt-16">
                 {appliedSpots.map(spot => (
