@@ -6,6 +6,7 @@ const MyList = () => {
 
     const {user} = useContext(AuthContext) || {};
 const [item , setItem] = useState([])
+const [users, setUsers] = useState({user})
 
 
 useEffect(() => {
@@ -16,8 +17,22 @@ fetch(`http://localhost:5000/myList/${user?.email}`)
 })
 },[user?.email])
 
-const handleDelete = () => {
+const handleDelete = _id => {
+console.log('delete', _id);
+fetch(`http://localhost:5000/spot/${_id}`, {
+method: 'DELETE',
 
+})
+.then(res => res.json())
+.then(data => {
+console.log(data);
+if(data.deletedCount > 0) {
+alert('deleted successfully');
+const remaining = users.filter(user => user._id !== _id)
+setUsers(remaining);
+}
+
+})
 }
 
     return (
@@ -29,6 +44,7 @@ const handleDelete = () => {
     <thead>
       <tr>
         <th className="hidden md:table-cell"></th>
+        <th className="text-xl font-semibold">Spot Photo</th>
         <th className="text-xl font-semibold">Spot Names</th>
         <th className="text-xl font-semibold">Average Cost</th>
         <th className="text-xl font-semibold">Total Visitors Per Year</th>
@@ -40,13 +56,14 @@ const handleDelete = () => {
       {item?.map((p, idx) => (
         <tr key={idx}>
           <td className="hidden md:table-cell">{idx + 1}</td>
-          <td>{p.name}</td>
-          <td>{p.average}$</td>
-          <td>{p.total}</td>
-          <td className="flex gap-2 items-center">
-            <button onClick={() => handleDelete(p._id)} className="btn">Delete</button>
-            <button className="btn">Update</button>
-          </td>
+          <td><img className="h-[100px] w-[150px] rounded-lg" src={p.photoURL} alt="" /></td>
+          <td className="text-lg font-semibold">{p.name}</td>
+          <td className="text-lg font-semibold">{p.average}$</td>
+          <td className="text-lg font-semibold">{p.total}</td>
+          <td className="flex enter gap-2 items-center pt-9">
+  <button onClick={() => handleDelete(p._id)} className="btn bg-red-500 border-0 text-white font-semibold text-lg">Delete</button>
+  <button className="btn bg-green-600 border-0 text-white font-semibold text-lg">Update</button>
+</td>
         </tr>
       ))}
     </tbody>

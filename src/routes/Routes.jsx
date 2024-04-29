@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     },
     {
     path: "/addTourist",
-    element: <AddTourist></AddTourist>,
+    element: <AddTourist></AddTourist>, 
 
     },
     {

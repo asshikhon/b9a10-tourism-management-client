@@ -174,8 +174,7 @@ const Navbar = () => {
                   <div className="w-12 rounded-full">
                     <img alt="Photo Coming Soon.." src={user?.photoURL} />
                   </div>
-                </div>
-                          
+                </div> 
               </div>
               <button
                 onClick={handleLogOut}
