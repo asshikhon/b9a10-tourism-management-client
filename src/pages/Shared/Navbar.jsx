@@ -1,6 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useContext, useEffect, useState } from "react";
@@ -140,7 +139,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-          {/* <img className="h-[40px] lg:h-[60px] w-[30px] lg:w-[60px]" src="" alt="" /> */}
+
 
           <a
             className="btn btn-ghost text-xl md:text-3xl lg:text-4xl"
@@ -162,7 +161,7 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center ">
               <div
-              className="mr-2"
+                className="mr-2"
                 data-tooltip-id="my-tooltip"
                 data-tooltip-content={user?.displayName}
               >
@@ -174,7 +173,7 @@ const Navbar = () => {
                   <div className="w-12 rounded-full">
                     <img alt="Photo Coming Soon.." src={user?.photoURL} />
                   </div>
-                </div> 
+                </div>
               </div>
               <button
                 onClick={handleLogOut}

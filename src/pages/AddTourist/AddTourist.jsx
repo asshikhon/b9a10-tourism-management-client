@@ -36,7 +36,7 @@ name,country,location, travel, userName,  photoURL,average,seasonality, total,em
 console.log(newSpot);
 
 // send data to the server
-fetch('http://localhost:5000/spot', {
+fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot', {
 method: 'POST',
 headers: {
 'content-type': 'application/json'
@@ -263,7 +263,6 @@ if(data.insertedId){
             </div>
           </form>
         </div>
-            
       </div>
     </div>
   );

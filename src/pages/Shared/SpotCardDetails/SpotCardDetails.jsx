@@ -1,12 +1,16 @@
 import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
+import detailsLogo from "../../../../src/assets/images/details.png"
 
 const SpotCardDetails = () => {
   const cards = useLoaderData();
   const { id } = useParams();
   const { loading } = useContext(AuthContext);
 const card = cards.find(item => item._id == id);
+
+
 
   if (loading) {
     return (
@@ -19,6 +23,12 @@ const card = cards.find(item => item._id == id);
 
   return (
     <div className="flex flex-col container mx-auto p-6 space-y-6 overflow-hidden rounded-lg lg:mt-6">
+
+<Helmet>
+                <link rel="shortcut icon" href={detailsLogo} type="image/x-icon" />
+                <title>TourismTrek || details{id}</title>
+            </Helmet>
+
       <img
         src={card?.photoURL}
         alt=""

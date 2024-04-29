@@ -1,20 +1,37 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Helmet } from "react-helmet-async";
+import myLogo from "../../../src/assets/images/mylist.png"
+import { Link } from "react-router-dom";
 
 const MyList = () => {
-  const { user } = useContext(AuthContext) || {};
+  const { user, loading } = useContext(AuthContext) || {};
   const [item, setItem] = useState([]);
 
+
+
+
+
+
   useEffect(() => {
-    fetch(`http://localhost:5000/myList/${user?.email}`)
+    fetch(`https://b9a10-tourism-management-server-mu.vercel.app/myList/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setItem(data);
       });
   }, [user?.email]);
 
+  
+  if (loading) {
+    return (
+<div className="flex justify-center items-center h-screen">
+<div className="animate-spin rounded-full h-24 w-24 border-t-4 border-b-4 border-gray-800"></div>
+</div>
+    );
+}
+
   const handleDelete = (_id) => {
-    fetch(`http://localhost:5000/spot/${_id}`, {
+    fetch(`https://b9a10-tourism-management-server-mu.vercel.app/spot/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -34,6 +51,12 @@ const MyList = () => {
 
   return (
     <div className="container mx-auto px-3 md:px-0 mt-10 md:mt-16 lg:mt-20">
+
+<Helmet>
+                <link rel="shortcut icon" href={myLogo} type="image/x-icon" />
+                <title>TourismTrek || myList</title>
+            </Helmet>
+
       <div className="overflow-x-auto">
         <table className="table">
           <thead>
@@ -67,9 +90,9 @@ const MyList = () => {
                   >
                     Delete
                   </button>
-                  <button className="btn bg-green-600 border-0 text-white font-semibold text-lg">
+                  <Link to={`/update/${p._id}`} className="btn bg-green-600 border-0 text-white font-semibold text-lg">
                     Update
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}

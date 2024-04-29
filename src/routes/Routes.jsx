@@ -9,6 +9,7 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import SpotCardDetails from "../pages/Shared/SpotCardDetails/SpotCardDetails";
+import Update from "../Update/Update";
 
 
 const router = createBrowserRouter([
@@ -20,17 +21,17 @@ const router = createBrowserRouter([
     {
     path: "/",
     element: <Home></Home>,
-    loader: () => fetch('http://localhost:5000/spot')
+    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot')
     },
     {
     path: "/allTourists",
     element: <AllTourist></AllTourist>,
-    loader: () => fetch('http://localhost:5000/spot')
+    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot')
     },
     {
     path: "/details/:id",
     element: <SpotCardDetails></SpotCardDetails>,
-    loader: () => fetch('http://localhost:5000/spot'),
+    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot'),
     },
     {
     path: "/addTourist",
@@ -40,7 +41,13 @@ const router = createBrowserRouter([
     {
     path: "/myList",
     element: <MyList></MyList>,
-    loader: () => fetch('http://localhost:5000/spot'),
+    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot'),
+    },
+    {
+    path: "/update/:id",
+    element: <Update></Update>,
+    loader: ({params}) => fetch(`https://b9a10-tourism-management-server-mu.vercel.app/spot/${params.id}`),
+    
     },
 
 {
