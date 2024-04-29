@@ -1,11 +1,12 @@
 import { Helmet } from "react-helmet-async";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import updateLogo from "../../src/assets/images/update.png"
 import Swal from "sweetalert2";
 
 const Update = () => {
-const loadedUser = useLoaderData()
 
+const loadedUser = useLoaderData()
+const navigate = useNavigate()
 const handleUpdate = e => {
 e.preventDefault();
 
@@ -43,7 +44,7 @@ if(data.modifiedCount > 0) {
 
 }
 })
-
+navigate('/myList');
 }
 
     return (

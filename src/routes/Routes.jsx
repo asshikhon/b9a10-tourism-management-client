@@ -10,6 +10,7 @@ import Login from "../pages/Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import SpotCardDetails from "../pages/Shared/SpotCardDetails/SpotCardDetails";
 import Update from "../Update/Update";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -30,17 +31,17 @@ const router = createBrowserRouter([
     },
     {
     path: "/details/:id",
-    element: <SpotCardDetails></SpotCardDetails>,
+    element: <PrivateRoute><SpotCardDetails></SpotCardDetails></PrivateRoute>,
     loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot'),
     },
     {
     path: "/addTourist",
-    element: <AddTourist></AddTourist>, 
+    element: <PrivateRoute><AddTourist></AddTourist></PrivateRoute>, 
 
     },
     {
     path: "/myList",
-    element: <MyList></MyList>,
+    element: <PrivateRoute><MyList></MyList></PrivateRoute>,
     loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot'),
     },
     {

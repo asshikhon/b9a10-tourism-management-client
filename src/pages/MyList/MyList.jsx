@@ -9,10 +9,6 @@ const MyList = () => {
   const [item, setItem] = useState([]);
 
 
-
-
-
-
   useEffect(() => {
     fetch(`https://b9a10-tourism-management-server-mu.vercel.app/myList/${user?.email}`)
       .then((res) => res.json())
@@ -20,7 +16,6 @@ const MyList = () => {
         setItem(data);
       });
   }, [user?.email]);
-
   
   if (loading) {
     return (
