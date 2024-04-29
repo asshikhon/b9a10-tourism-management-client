@@ -55,7 +55,7 @@ const card = cards.find(item => item._id == id);
         </div>
 
         <p className="text-base text-gray-600 font-medium">
-          {card.description}
+          {card.description} 
         </p>
       </div>
     </div>
