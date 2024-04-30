@@ -13,6 +13,7 @@ import Update from "../Update/Update";
 import PrivateRoute from "./PrivateRoute";
 
 
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
     loader: ({params}) => fetch(`https://b9a10-tourism-management-server-mu.vercel.app/spot/${params.id}`),
     
     },
+
 
 {
 path:"/register",

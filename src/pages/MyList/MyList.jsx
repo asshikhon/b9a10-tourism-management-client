@@ -53,7 +53,7 @@ const MyList = () => {
     if(data.deletedCount > 0) {
      Swal.fire({
           title: "Deleted!",
-          text: "Your Coffee has been deleted.",
+          text: "Your tourist spot has been deleted.",
           icon: "success",
         });
         const remaining = item.filter(user => user._id !== _id)
@@ -118,6 +118,8 @@ const MyList = () => {
                 <td className="text-lg font-semibold">{p.average}$</td>
                 <td className="text-lg font-semibold">{p.total}</td>
                 <td className="flex enter gap-2 items-center pt-9">
+
+                  
                   <button
                     onClick={() => handleDelete(p._id)}
                     className="btn bg-red-500 border-0 text-white font-semibold text-lg"

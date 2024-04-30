@@ -11,7 +11,6 @@ const SpotCardDetails = () => {
 const card = cards.find(item => item._id == id);
 
 
-
   if (loading) {
     return (
       <div className="flex justify-center items-center">
