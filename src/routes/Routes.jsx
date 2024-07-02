@@ -12,64 +12,75 @@ import SpotCardDetails from "../pages/Shared/SpotCardDetails/SpotCardDetails";
 import Update from "../Update/Update";
 import PrivateRoute from "./PrivateRoute";
 
-
-
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Root></Root>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-    {
+  {
     path: "/",
-    element: <Home></Home>,
-    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot')
-    },
-    {
-    path: "/allTourists",
-    element: <AllTourist></AllTourist>,
-    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot')
-    },
-    {
-    path: "/details/:id",
-    element: <PrivateRoute><SpotCardDetails></SpotCardDetails></PrivateRoute>,
-    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot'),
-    },
-    {
-    path: "/addTourist",
-    element: <PrivateRoute><AddTourist></AddTourist></PrivateRoute>, 
+    element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () =>
+          fetch("https://b9a10-tourism-management-server-mu.vercel.app/spot"),
+      },
+      {
+        path: "/allTourists",
+        element: <AllTourist></AllTourist>,
+        loader: () =>
+          fetch("https://b9a10-tourism-management-server-mu.vercel.app/spot"),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <PrivateRoute>
+            <SpotCardDetails></SpotCardDetails>
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch("https://b9a10-tourism-management-server-mu.vercel.app/spot"),
+      },
+      {
+        path: "/addTourist",
+        element: (
+          <PrivateRoute>
+            <AddTourist></AddTourist>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myList",
+        element: (
+          <PrivateRoute>
+            <MyList></MyList>
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch("https://b9a10-tourism-management-server-mu.vercel.app/spot"),
+      },
+      {
+        path: "/update/:id",
+        element: <Update></Update>,
+        loader: ({ params }) =>
+          fetch(
+            `https://b9a10-tourism-management-server-mu.vercel.app/spot/${params.id}`
+          ),
+      },
 
-    },
-    {
-    path: "/myList",
-    element: <PrivateRoute><MyList></MyList></PrivateRoute>,
-    loader: () => fetch('https://b9a10-tourism-management-server-mu.vercel.app/spot'),
-    },
-    {
-    path: "/update/:id",
-    element: <Update></Update>,
-    loader: ({params}) => fetch(`https://b9a10-tourism-management-server-mu.vercel.app/spot/${params.id}`),
-    
-    },
-
-
-{
-path:"/register",
-element: <Register></Register>,
-},
-{
-path: "/login",
-element: <Login></Login>,
-
-},
-{
-  path: "/contact",
-  element: <ContactUs></ContactUs>,
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
+      },
+    ],
   },
-    
-    ]
+]);
 
-    },
-  ]);
-
-  export default router;
+export default router;

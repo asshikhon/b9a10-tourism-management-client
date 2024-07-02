@@ -10,9 +10,6 @@ const AddTourist = () => {
 
 
 const handleAddSpot = e => {
-
-
-
 e.preventDefault();
 const form = e.target;
 

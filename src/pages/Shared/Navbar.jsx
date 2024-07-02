@@ -139,8 +139,6 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-
-
           <a
             className="btn btn-ghost text-xl md:text-3xl lg:text-4xl"
             style={{

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 
 const Update = () => {
 
+  
 const loadedUser = useLoaderData()
 const navigate = useNavigate()
 const handleUpdate = e => {
